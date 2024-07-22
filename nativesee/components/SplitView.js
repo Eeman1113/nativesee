@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { Page, Document, pdfjs } from 'react-pdf';
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.mjs`;
 
 // render two pages side by side
 export default function SplitView({ file, pageNum, setTotalPages }) {
