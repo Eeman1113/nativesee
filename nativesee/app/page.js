@@ -1,5 +1,6 @@
 'use client';
-import SplitView from '@/components/SplitView';
+import dynamic from 'next/dynamic';
+const SplitView = dynamic(import('@/components/SplitView'), { ssr: false });
 import React from 'react';
 import { useState } from 'react';
 
