@@ -1,4 +1,5 @@
 'use client';
+import dynamic from 'next/dynamic';
 import SplitView from '@/components/SplitView';
 import React from 'react';
 import { useState } from 'react';
@@ -40,7 +41,7 @@ export default function Home() {
           >
             Previous Page
           </button>
-          <span className="text-purple-300 text-sm">
+          <span className="text-purple-300 text-xl">
             Page {currentPage} of {totalPages}
           </span>
           <button
@@ -52,7 +53,7 @@ export default function Home() {
           </button>
         </div>
         <div>
-          <SplitView file={file} pageNum={currentPage} setTotalPages={setTotalPages} />
+          <SplitView file={file} pageNum={currentPage} setTotalPages={setTotalPages} nextPage={handleNextPage} prevPage={handlePreviousPage} />
         </div>
       </div>
     );

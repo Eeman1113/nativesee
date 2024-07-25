@@ -3,10 +3,11 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { Page, Document, pdfjs } from 'react-pdf';
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+import HandGestureNavigation from '@/components/HandGestureNavigation';
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.mjs`;
 
 // render two pages side by side
-export default function SplitView({ file, pageNum, setTotalPages }) {
+export default function SplitView({ file, pageNum, setTotalPages, nextPage, prevPage }) {
   const [width, setWidth] = useState(0);
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -24,6 +25,7 @@ export default function SplitView({ file, pageNum, setTotalPages }) {
       <div className='flex w-1/2 h-max p-2 justify-center items-center'>
         <SinglePage url={file} width={width * 0.45} pageNum={pageNum + 1} setTotalPages={setTotalPages} />
       </div>
+      <HandGestureNavigation nextPage={nextPage} prevPage={prevPage} />
     </div>
   );
 }
